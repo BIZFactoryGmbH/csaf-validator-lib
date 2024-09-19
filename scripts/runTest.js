@@ -10,10 +10,10 @@
  */
 
 import { readFile } from 'fs/promises'
-import * as schemaTests from '../schemaTests.js'
-import * as mandatoryTests from '../mandatoryTests.js'
-import * as optionalTests from '../optionalTests.js'
-import * as informativeTests from '../informativeTests.js'
+import * as schemaTests from '../versions/schemaTests.js'
+import * as mandatoryTests from '../versions/mandatoryTests.js'
+import * as optionalTests from '../versions/optionalTests.js'
+import * as informativeTests from '../versions/informativeTests.js'
 import validate from '../validate.js'
 
 const [, , filePath, testName] = process.argv

@@ -1,7 +1,7 @@
 import { readFile } from 'fs/promises'
-import * as informative from '../informativeTests.js'
-import * as optional from '../optionalTests.js'
-import * as mandatory from '../mandatoryTests.js'
+import * as informative from '../versions/informativeTests.js/index.js'
+import * as optional from '../versions/optionalTests.js'
+import * as mandatory from '../versions/mandatoryTests.js'
 import { expect } from 'chai'
 import { readFileSync } from 'fs'
 
