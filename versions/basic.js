@@ -11,7 +11,7 @@ export {
   mandatoryTest_6_1_9,
   mandatoryTest_6_1_10,
   mandatoryTest_6_1_11,
-  // mandatoryTest_6_1_12, TEST NOT INCLUDED
+  mandatoryTest_6_1_12,
   mandatoryTest_6_1_13,
   mandatoryTest_6_1_14,
   mandatoryTest_6_1_15,

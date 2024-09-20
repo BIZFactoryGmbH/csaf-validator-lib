@@ -1,7 +1,7 @@
 import Ajv from 'ajv'
 import chai from 'chai'
 import { getGlobalDispatcher, setGlobalDispatcher } from 'undici'
-import * as informativeTests from '../versions/informativeTests.js/index.js'
+import * as informativeTests from '../versions/informativeTests.js'
 import * as mandatoryTests from '../versions/mandatoryTests.js'
 import * as schemaTests from '../versions/schemaTests.js'
 import strip from '../strip.js'
