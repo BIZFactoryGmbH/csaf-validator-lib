@@ -3,7 +3,7 @@ import { expect } from "chai"
 /**
  * @param {string} version
  */
-export default function areTestsValid(version) {
+export default function areVersionTestsValid(version) {
     return describe(`Duplicate tests for version ${version}`, function () {
         it(`no duplicate tests in /versions/${version}/basic.js`, async function () {
             const tests = Object.values(
@@ -22,9 +22,9 @@ export default function areTestsValid(version) {
             }
 
             // Filter out all duplicate tests
-            const filteredTests = versionTests?.filter(test => tests.includes(test))
+            const uniqueTests = versionTests?.filter(test => tests.includes(test))
 
-            expect(filteredTests?.length).to.be.eq(0)
+            expect(uniqueTests?.length).to.be.eq(0)
         })
     })  
 }
