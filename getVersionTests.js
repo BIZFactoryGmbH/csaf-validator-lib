@@ -35,7 +35,7 @@ export default async function getVersionTests(version, tests) {
   TESTS = TESTS.filter((/** @type {any} */t) => !IGNORED_TESTS.includes(t.name))
 
   // Make sure that the tests are not duplicated
-  VERSION_TESTS.forEach((t) => {
+  VERSION_TESTS.forEach((/** @type {any} */t) => {
     if (!TESTS.map((/** @type {any} */t) => t.name).includes(t.name)) {
       TESTS.push(t)
     } else {
