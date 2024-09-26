@@ -10,7 +10,9 @@ import * as optional from './versions/optionalTests.js'
  */
 export default async function getVersionTests(version, tests) {
   let TESTS = tests
+  /** @type {unknown[]} */
   let VERSION_TESTS = []
+  /** @type {unknown[]} */
   let IGNORED_TESTS = []
 
   try {
