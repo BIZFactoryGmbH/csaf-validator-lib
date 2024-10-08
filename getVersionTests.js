@@ -9,7 +9,7 @@ import * as optional from './versions/optionalTests.js'
  * @param {unknown[]} tests
  */
 export default async function getVersionTests(version, tests) {
-  let TESTS = tests
+  let versionTests = tests
   /** @type {unknown[]} */
   let VERSION_TESTS = []
   /** @type {unknown[]} */
@@ -32,19 +32,13 @@ export default async function getVersionTests(version, tests) {
     )
   }
 
-  TESTS = TESTS.filter((/** @type {any} */t) => !IGNORED_TESTS.includes(t.name))
+  versionTests = versionTests.filter((/** @type {any} */t) => !IGNORED_TESTS.includes(t.name))
+  versionTests = versionTests.concat(
+    // add version tests if they're not already in the list
+    VERSION_TESTS.filter((/** @type {any} */t) => versionTests.every((/** @type {any} */x) => x.name !== t.name))
+  )
 
-  // Make sure that the tests are not duplicated
-  VERSION_TESTS.forEach((/** @type {any} */t) => {
-    if (!TESTS.map((/** @type {any} */t) => t.name).includes(t.name)) {
-      TESTS.push(t)
-    } else {
-      // eslint-disable-next-line no-console
-      console.warn(`Test ${t.name} is already present in the basic tests.`)
-    }
-  })
-
-  return TESTS
+  return versionTests
 }
 
 export const getVersionBasicTests = (/** @type {string} */ version) => getVersionTests(version, Object.values(basic))
