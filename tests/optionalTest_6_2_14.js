@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import { optionalTest_6_2_14 } from '../optionalTests.js'
+import { optionalTest_6_2_14 } from '../versions/optionalTests.js'
 import readExampleFiles from './shared/readExampleFiles.js'
 
 const failingExamples = await readExampleFiles(

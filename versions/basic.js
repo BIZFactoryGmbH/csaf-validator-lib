@@ -1,4 +1,4 @@
-export { csaf_2_0_strict } from './lib/schemaTests.js'
+export { csaf_2_0_strict } from '../lib/schemaTests.js'
 export {
   mandatoryTest_6_1_1,
   mandatoryTest_6_1_2,
@@ -43,4 +43,4 @@ export {
   mandatoryTest_6_1_31,
   mandatoryTest_6_1_32,
   mandatoryTest_6_1_33,
-} from './lib/mandatoryTests.js'
+} from '../lib/mandatoryTests.js'
