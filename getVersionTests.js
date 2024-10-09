@@ -19,7 +19,7 @@ export default async function getVersionTests(version, tests, type) {
   try {
     VERSION_TESTS = Object.values(
       await import(
-        `./versions/${version}/basic.js`
+        `./versions/${version}/${type}.js`
       )
     )
     IGNORED_TESTS = Object.values(
