@@ -7,7 +7,7 @@ import * as optional from './versions/optionalTests.js'
 /**
  * @param {string} version
  * @param {unknown[]} tests
- * @param {'basic' | 'optional' | 'mandatory' | 'schema' | 'informative'} type
+ * @param {'basic' | 'optionalTests' | 'mandatoryTests' | 'schemaTests' | 'informativeTests'} type
  */
 export default async function getVersionTests(version, tests, type) {
   let versionTests = tests
@@ -19,12 +19,12 @@ export default async function getVersionTests(version, tests, type) {
   try {
     VERSION_TESTS = Object.values(
       await import(
-        `../../../../csaf-validator-lib/versions/${version}/${type}.js`
+        `./versions/${version}/basic.js`
       )
     )
     IGNORED_TESTS = Object.values(
       await import(
-        `../../../../csaf-validator-lib/versions/${version}/ignoredTests.js`
+        `./versions/${version}/ignoredTests.js`
       )
     )
   } catch (error) {
@@ -33,7 +33,7 @@ export default async function getVersionTests(version, tests, type) {
     )
   }
 
-  versionTests = versionTests.filter((/** @type {any} */t) => !IGNORED_TESTS.includes(t.name))
+  versionTests = versionTests.filter((/** @type {any} */t) => !IGNORED_TESTS.includes(t))
   versionTests = versionTests.concat(
     // add version tests if they're not already in the list
     VERSION_TESTS.filter((/** @type {any} */t) => versionTests.every((/** @type {any} */x) => x.name !== t.name))
@@ -43,7 +43,7 @@ export default async function getVersionTests(version, tests, type) {
 }
 
 export const getVersionBasicTests = (/** @type {string} */ version) => getVersionTests(version, Object.values(basic), 'basic')
-export const getVersionOptionalTests = (/** @type {string} */ version) => getVersionTests(version, Object.values(optional), 'optional')
-export const getVersionMandatoryTests = (/** @type {string} */ version) => getVersionTests(version, Object.values(mandatory), 'mandatory')
-export const getVersionSchemaTests = (/** @type {string} */ version) => getVersionTests(version, Object.values(schema), 'schema')
-export const getVersionInformativeTests = (/** @type {string} */ version) => getVersionTests(version, Object.values(informative), 'informative')
+export const getVersionOptionalTests = (/** @type {string} */ version) => getVersionTests(version, Object.values(optional), 'optionalTests')
+export const getVersionMandatoryTests = (/** @type {string} */ version) => getVersionTests(version, Object.values(mandatory), 'mandatoryTests')
+export const getVersionSchemaTests = (/** @type {string} */ version) => getVersionTests(version, Object.values(schema), 'schemaTests')
+export const getVersionInformativeTests = (/** @type {string} */ version) => getVersionTests(version, Object.values(informative), 'informativeTests')
