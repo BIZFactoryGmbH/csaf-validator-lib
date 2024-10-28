@@ -7,7 +7,7 @@ import * as optional from './versions/optionalTests.js'
 /**
  * @param {string} version
  * @param {unknown[]} tests
- * @param {'basic' | 'optionalTests' | 'mandatoryTests' | 'schemaTests' | 'informativeTests'} type
+ * @param {'basic' | 'optionalTests' | 'mandatoryTests' | 'schemaTests' | 'informativeTests' | 'extended' | 'full'} type
  */
 export default async function getVersionTests(version, tests, type) {
   let versionTests = tests
@@ -47,3 +47,5 @@ export const getVersionOptionalTests = (/** @type {string} */ version) => getVer
 export const getVersionMandatoryTests = (/** @type {string} */ version) => getVersionTests(version, Object.values(mandatory), 'mandatoryTests')
 export const getVersionSchemaTests = (/** @type {string} */ version) => getVersionTests(version, Object.values(schema), 'schemaTests')
 export const getVersionInformativeTests = (/** @type {string} */ version) => getVersionTests(version, Object.values(informative), 'informativeTests')
+export const getVersionExtendedTests = (/** @type {string} */ version) => getVersionTests(version, Object.values(informative), 'extended')
+export const getVersionFullTests = (/** @type {string} */ version) => getVersionTests(version, Object.values(informative), 'full')
