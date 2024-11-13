@@ -1,4 +1,3 @@
-/* No additional test */
 export {
-  mandatoryTest_6_1_23,
-} from '../../lib/mandatoryTests.js'
+  optionalTest_6_2_10
+} from '../../lib/optionalTests.js'
