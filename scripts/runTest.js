@@ -10,15 +10,23 @@
  */
 
 import { readFile } from 'fs/promises'
-import * as schemaTests from '../versions/schemaTests.js'
-import * as mandatoryTests from '../versions/mandatoryTests.js'
-import * as optionalTests from '../versions/optionalTests.js'
-import * as informativeTests from '../versions/informativeTests.js'
 import validate from '../validate.js'
+import { getVersionInformativeTests, getVersionMandatoryTests, getVersionOptionalTests, getVersionSchemaTests } from '../getVersionTests.js'
+
+function grab(/** @type {string} **/ flag) {
+  var index = process.argv.indexOf(flag);
+  return (index === -1) ? null : process.argv[index+1];
+}
 
 const [, , filePath, testName] = process.argv
 
 const json = JSON.parse(await readFile(filePath, { encoding: 'utf-8' }))
+const version = grab('--csaf') ?? '2.0'
+
+const mandatoryTests = getVersionMandatoryTests(version)
+const optionalTests = getVersionOptionalTests(version)
+const informativeTests = getVersionInformativeTests(version)
+const schemaTests = getVersionSchemaTests(version)
 
 const matchingTests =
   testName === 'mandatory'
