@@ -21,7 +21,7 @@ import { getVersionInformativeTests, getVersionMandatoryTests, getVersionOptiona
  */
 const runTest = async (filepath, testName, options) => {
   const json = JSON.parse(await readFile(filepath, { encoding: 'utf-8' }))
-  const version = options.csaf
+  const version = /** @type {string} */ (options.csaf)
 
   const mandatoryTests = getVersionMandatoryTests(version)
   const optionalTests = getVersionOptionalTests(version)
