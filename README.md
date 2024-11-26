@@ -214,6 +214,9 @@ export const mandatoryTest_6_1_30: DocumentTest
 export const mandatoryTest_6_1_31: DocumentTest
 export const mandatoryTest_6_1_32: DocumentTest
 export const mandatoryTest_6_1_33: DocumentTest
+export const mandatoryTest_6_1_34: DocumentTest
+export const mandatoryTest_6_1_35: DocumentTest
+export const mandatoryTest_6_1_36: DocumentTest
 ```
 
 [(back to top)](#bsi-csaf-validator-lib)
